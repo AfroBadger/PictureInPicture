@@ -57,18 +57,21 @@ button.addEventListener('click', async () => {
         button.disabled = false;
         // setButtonText("Disable PNP");
         // changes button text
-        setButtonTextAuto();
+        // setButtonTextAuto();
     }
     else {
         document
             .exitPictureInPicture()
+            // .then(() =>{setButtonTextAuto();})
             .catch(error => {
                 console.log('An error happened when exiting PnP', error);
             })
-            // setButtonText("Enable PNP");
-            setButtonTextAuto();
+            // setButtonText("Enable PNP");   
         }
 });
+
+videoMediaElement.addEventListener('leavepictureinpicture', setButtonTextAuto, false)
+videoMediaElement.addEventListener('enterpictureinpicture', setButtonTextAuto, false)
 
 // On Load
 selectMediaStream();
